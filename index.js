@@ -1,2 +1,1 @@
-const color = require("colors");
-console.log('colors'.black)
+console.log(' clog nodemaon yay')
