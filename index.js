@@ -1,25 +1,16 @@
-const fs = require("fs");
-const path = require("path");
-const dirPath = path.join(__dirname, "crud");
-const filePath = `${dirPath}/apple.txt`;
+const express = require("express");
+const app = express();
 
-// fs.writeFileSync(filePath, "This is a simple text file"); // create operation
+app.get("/", (req, res) => {
+  res.send("Hello This is Home page");
+});
 
-// fs.readFile(filePath, "utf-8", (err, item) => {
-//   console.log(item);
-// }); //Read operation
+app.get("/about", (req, res) => {
+  res.send("Hello This is About page");
+});
 
-// fs.appendFile(filePath, "and file name is apple.txt", (err) => {
-//   if (!err) {
-//     console.log("file is updated");
-//   }
-// }); //Update operation
+app.get("/help", (req, res) => {
+  res.send("Hello This is Help page");
+});
 
-
-
-// fs.rename(filePath, `${dirPath}/fruit.txt`, (err)=>{
-//     if(!err) console.log('file updated')
-    
-// }) //Rename operation
-
-fs.unlinkSync(`${dirPath}/fruit.txt`) //delete oepration
+app.listen(5000)
