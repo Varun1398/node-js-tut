@@ -1,16 +1,19 @@
-const express = require("express");
-const app = express();
+const dbConnect = require('./mongoDb')
 
-app.get("/", (req, res) => {
-  res.send("Hello This is Home page");
-});
+// Via Promise
+// dbConnect().then((response) => {
+//   response
+//     .find()
+//     .toArray()
+//     .then((data) => {
+//       console.log("data", data);
+//     });
+// });
 
-app.get("/about", (req, res) => {
-  res.send("Hello This is About page");
-});
-
-app.get("/help", (req, res) => {
-  res.send("Hello This is Help page");
-});
-
-app.listen(5000)
+// Via Async Await
+const main = async () => {
+  let data = await dbConnect();
+  data = await data.find().toArray();
+  console.log("data", data);
+};
+main();
